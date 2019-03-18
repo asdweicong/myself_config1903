@@ -1,0 +1,28 @@
+{
+  "name": "demo",
+  "description": "demo",
+  "main": "index.js",
+  "authors": [
+    "wufan"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "webpack",
+    "前端工程化",
+    "web",
+    "JavaScript"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "smalot-bootstrap-datetimepicker": "^2.4.4",
+    "eruda": "^1.2.0"
+  }
+}

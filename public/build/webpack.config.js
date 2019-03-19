@@ -29,7 +29,7 @@ module.exports = {
         filename: 'js/[name].js'
     },
     devtool: 'eval',
-    watch: false,//开启监听文件的更改，自动刷新
+    watch: true,//开启监听文件的更改，自动刷新
     watchOptions: {
         ignored: /node_modules/,//忽略不用监听变更的目录
         aggregateTimeout: 3000,//防止重复保存频繁重新编译，500毫秒内重复保存不打包

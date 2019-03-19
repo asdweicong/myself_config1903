@@ -2,16 +2,16 @@
     //无依赖版
     var noop = function(){}
     function Deferred(mixin) {
-        var state = "pending", dirty = false
+        var state = "pending", dirty = false;
         function ok(x) {
-            state = "fulfilled"
+            state = "fulfilled";
             return x
         }
         function ng(e) {
-            state = "rejected"
+            state = "rejected";
             throw e
         }
-        
+
         var dfd = {
             callback: {
                 resolve: ok,

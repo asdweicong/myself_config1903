@@ -9,10 +9,9 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HappyPack = require("happypack");
 const happyThreadPool = HappyPack.ThreadPool({size: os.cpus().length}); //动态启动线程池
 
-const config = require('../config/config');
 
-var appHostURL = config.appHostURL;
-var appHost = config.appHost;
+var appHostURL = 'http://192.168.199.149';
+var appHost = '192.168.199.149';
 var pages = require("./page.js").getConfig();
 module.exports = {
     entry: pages.entry,//引用生成好的配置
@@ -122,6 +121,8 @@ module.exports = {
                 host: appHost,
                 secure: false,
                 onProxyRes: function onProxyRes(proxyRes, req, res) {
+                    console.log(1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111)
+                    console.log(proxyRes.headers.location);
                     if (proxyRes.headers.location) {
                         var address = getIpAddress();
                         proxyRes.headers.location = "http://" + address + "8000";//重写重定向路径
@@ -132,6 +133,8 @@ module.exports = {
     }
 
 };
+console.log(2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222)
+
 var getIpAddress = function () {
     var interfaces = require('os').networkInterfaces();
     for (var devName = 0 in interfaces) {

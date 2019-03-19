@@ -1,0 +1,45 @@
+@import "../style/variable";
+@import "../style/mixin";
+
+$height: 55px;
+$item-width: 69px;
+
+.dev-tools {
+    .nav-bar {
+        @include absolute(100%, $height);
+        @include overflow-auto(y);
+        box-shadow: $box-shadow;
+        z-index: 100;
+        background: $blue;
+        ul {
+            font-size: 0;
+            li {
+                cursor: pointer;
+                display: inline-block;
+                height: $height;
+                line-height: $height;
+                width: $item-width;
+                color: #fff;
+                font-size: $font-size-s;
+                text-align: center;
+                text-transform: capitalize;
+                transition: background $anim-duration;
+                &:active {
+                    background: $blue-dark;
+                }
+                &.active {
+                    background: $blue-light;
+                }
+            }
+        }
+        .bottom-bar {
+            transition: left $anim-duration;
+            height: 3px;
+            background: #fff;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: $item-width;
+        }
+    }
+}

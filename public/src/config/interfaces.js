@@ -5,7 +5,7 @@ var config = require('./config');
 var object = {
     post: function (interfaceName, data) {
         $.ajax({
-            url: '',
+            url: config.appHostURL + '/' + interfaceName,
             type: 'post',
             data: data,
             dataType: 'json',
@@ -19,7 +19,7 @@ var object = {
     },
     get: function (interfaceName, data) {
         $.ajax({
-            url: '',
+            url: config.appHostURL + '/' + interfaceName,
             type: 'get',
             data: data,
             dataType: 'json',
@@ -32,3 +32,5 @@ var object = {
         })
     }
 };
+
+module.exports = object;

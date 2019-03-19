@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="deferred.js"></script>
+
+    <script>
+        window.onload = function () {
+            var oldConsole = window.console
+            window.console = {
+                log: function (str) {
+                    if (oldConsole) {
+                        oldConsole.log(str)
+                    }
+                    var div = document.createElement("div")
+                    div.innerHTML = str;
+                    document.body.appendChild(div);
+                }
+            }
+
+            function checkRule(b, dd) {
+                if (b) {
+                    dd.resolve(true)
+                } else {
+                    dd.reject("error")
+                }
+            }
+
+
+            var dd = Deferred();
+            checkRule(0, dd);
+            var promise = dd.promise.then(function (e) {
+                var dd = Deferred();
+                console.log("也会经过这里")
+                checkRule(0, dd)
+                return dd.promise
+            }).then(function (e) {
+                var dd = Deferred();
+                console.log("这里不会执行")
+                checkRule(0, dd)
+                return dd.promise
+            })
+//分开
+            promise.otherwise(function (e) {
+                console.log("最后到达这里 " + e)
+            })
+        }
+    </script>
+</head>
+<body>
+<div>TEST by 司徒正美</div>
+</body>
+</html>

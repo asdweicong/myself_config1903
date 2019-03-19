@@ -1,0 +1,24 @@
+{
+  "name": "eruda",
+  "description": "Console for Mobile Browsers",
+  "main": "eruda.js",
+  "version": "1.2.0",
+  "authors": [
+    "redhoodsuc",
+    "fuchao2012"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "console",
+    "mobile",
+    "debug"
+  ],
+  "homepage": "https://github.com/fuchao2012/eruda",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

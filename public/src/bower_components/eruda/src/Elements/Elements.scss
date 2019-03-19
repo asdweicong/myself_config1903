@@ -1,0 +1,218 @@
+@import "../style/variable";
+@import "../style/mixin";
+
+.dev-tools { .tools {
+    .elements {
+        padding-bottom: 40px;
+        font-size: 14px;
+        .show-area {
+            @include overflow-auto(y);
+            height: 100%;
+        }
+        .parents {
+            @include overflow-auto(x);
+            background: #fff;
+            padding: $padding;
+            white-space: nowrap;
+            border-bottom: 1px solid $gray-light;
+            cursor: pointer;
+            font-size: $font-size-s;
+            li {
+                display: inline-block;
+                .parent {
+                    display: inline-block;
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+            .icon-chevron-right {
+                font-size: 8px;
+            }
+        }
+        .breadcrumb {
+            @include breadcrumb();
+            cursor: pointer;
+            transition: background $anim-duration, color $anim-duration;
+            &:active {
+                background: $blue;
+                color: #fff;
+                span {
+                    color: #fff;
+                }
+            }
+        }
+        .section {
+            h2 {
+                background: $blue;
+                padding: $padding;
+                color: #fff;
+                font-size: $font-size;
+                transition: background $anim-duration;
+                &.active-effect {
+                    cursor: pointer;
+                }
+                &.active-effect:active {
+                    background: $blue-dark;
+                }
+            }
+            margin-bottom: 10px;
+        }
+        .children {
+            background: #fff;
+            margin-bottom: 10px !important;
+            border-bottom: 1px solid $gray-light;
+            li {
+                @include overflow-auto(x);
+                cursor: default;
+                padding: $padding;
+                border-top: 1px solid $gray-light;
+                white-space: nowrap;
+                transition: background $anim-duration, color $anim-duration;
+                span {
+                    transition: color $anim-duration;
+                }
+                &.active-effect {
+                    cursor: pointer;
+                }
+                &.active-effect:active {
+                    background: $blue;
+                    color: #fff;
+                    span {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        .attributes {
+            background: #fff;
+            font-size: 12px;
+            a {
+                color: $blue;
+            }
+            .table-wrapper {
+                @include overflow-auto(x);
+            }
+            table {
+                td {
+                    padding: 5px 10px;
+                }
+            }
+        }
+        .text-content {
+            background: #fff;
+            .content {
+                @include overflow-auto(x);
+                padding: $padding;
+            }
+        }
+        .style-color {
+            width: 7px;
+            height: 7px;
+            margin-right: 2px;
+            border: 1px solid $gray-dark;
+            display: inline-block;
+        }
+        .computed-style {
+            background: #fff;
+            font-size: 12px;
+            a {
+                color: $blue;
+            }
+            .table-wrapper {
+                @include overflow-auto(y);
+                max-height: 200px;
+            }
+            table {
+                td {
+                    padding: 5px 10px;
+                    &.key {
+                        white-space: nowrap;
+                        color: $red;
+                    }
+                }
+            }
+        }
+        .styles {
+            background: #fff;
+            font-size: 12px;
+            .style-wrapper {
+                padding: $padding;
+                .style-rules {
+                    border-radius: $border-radius;
+                    box-shadow: $box-shadow;
+                    padding: $padding;
+                    background: #fff;
+                    margin-bottom: 10px;
+                    .rule {
+                        padding-left: 2em;
+                        word-break: break-all;
+                        a {
+                            color: $blue;
+                        }
+                        span {
+                            color: $red;
+                        }
+                    }
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+        .listeners {
+            background: #fff;
+            font-size: 12px;
+            .listener-wrapper {
+                padding: $padding;
+                .listener {
+                    box-shadow: $box-shadow;
+                    margin-bottom: 10px;
+                    background: #fff;
+                    .listener-type {
+                        padding: $padding;
+                        background: $blue;
+                        color: #fff;
+                    }
+                    .listener-content li {
+                        @include overflow-auto(x);
+                        padding: $padding;
+                        border: 1px solid $gray;
+                        border-top: none;
+                        &.capture {
+                            background: $gray-light;
+                        }
+                    }
+                }
+            }
+        }
+        .bottom-bar {
+            height: 40px;
+            background: #fff;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            font-size: 0;
+            border-top: 1px solid $gray-light;
+            .btn {
+                cursor: pointer;
+                text-align: center;
+                color: $gray;
+                font-size: 14px;
+                line-height: 40px;
+                width: 25%;
+                display: inline-block;
+                transition: background $anim-duration, color $anim-duration;
+                &:active {
+                    background: $blue;
+                    color: #fff;
+                }
+                &.active {
+                    color: $blue;
+                }
+            }
+        }
+    }
+} }
+

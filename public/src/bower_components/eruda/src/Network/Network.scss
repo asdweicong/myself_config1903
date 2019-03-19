@@ -1,0 +1,87 @@
+@import "../style/variable";
+@import "../style/mixin";
+
+.dev-tools { .tools {
+    .network {
+        @include overflow-auto(y);
+        .performance-timing {
+            padding: $padding 0;
+            .inner-wrapper {
+                background: $blue;
+                .bar {
+                    @include overflow-auto(x);
+                    border-bottom: 1px solid #fff;
+                    span {
+                        font-size: $font-size-s;
+                        white-space: nowrap;
+                        color: #fff;
+                        padding: 5px 0;
+                        background: $red;
+                        display: inline-block;
+                    }
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+        .performance-timing-data {
+            padding: 0 10px 10px;
+            text-align: center;
+            display: none;
+            table {
+                width: 100%;
+                background: #fff;
+                border-collapse: collapse;
+                text-align: left;
+                th {
+                    background: $gray;
+                    text-align: left;
+                    color: #fff;
+                }
+                th, td {
+                    padding: 10px;
+                    font-size: 14px;
+                }
+            }
+        }
+        .title {
+            @include right-circle-btn();
+            background: $gray;
+            padding: $padding;
+            color: #fff;
+        }
+        .requests, .entries {
+            background: #fff;
+            border-bottom: 1px solid $gray-light;
+            margin-bottom: 10px;
+            li {
+                @include overflow-auto(x);
+                cursor: pointer;
+                border-top: 1px solid $gray-light;
+                height: 41px;
+                white-space: nowrap;
+                &.error {
+                    span {
+                        color: $red;
+                    }
+                }
+                span {
+                    display: inline-block;
+                    line-height: 40px;
+                    height: 40px;
+                    padding: 0 10px;
+                    font-size: $font-size-s;
+                    vertical-align: top;
+                }
+                &:nth-child(even) {
+                    background: $gray-light;
+                }
+            }
+        }
+        .entries {
+            @include overflow-auto(y);
+            max-height: 200px;
+        }
+    }
+} }

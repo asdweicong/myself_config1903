@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>demoPage-index</title>
 </head>
 <body>
-测试
+<form action="http://192.168.199.149:3003/process_get" method="get">
+    <input type="text" name="first_name" value="" placeholder="first_name">
+    <input type="text" name="last_name" value="" placeholder="last_name">
+    <input type="submit" value="提交get请求">
+</form>
+<br>
+<form action="http://192.168.199.149:3003/process_post" method="post">
+    <input type="text" name="first_name" value="" placeholder="first_name">
+    <input type="text" name="last_name" value="" placeholder="last_name">
+    <input type="submit" value="提交post请求">
+</form>
 </body>
 </html>

@@ -1,0 +1,92 @@
+@import "../style/variable";
+@import "../style/mixin";
+
+.dev-tools { .tools {
+    .resources {
+        @include overflow-auto(y);
+        padding: 10px;
+        font-size: 14px;
+        .section {
+            margin-bottom: 10px;
+            border-radius: 4px;
+            box-shadow: $box-shadow;
+            overflow: hidden;
+        }
+        .title {
+            @include right-circle-btn();
+            padding: $padding;
+            color: #fff;
+            background: $blue;
+            &.ok {
+                background: $green;
+            }
+            &.warn {
+                background: $yellow;
+            }
+            &.danger {
+                background: $red;
+            }
+        }
+        .link-list {
+            li {
+                padding: 10px;
+                background: #fff;
+                word-break: break-all;
+                a {
+                    color: $blue !important;
+                }
+            }
+        }
+        .image-list {
+            @include clear-float();
+            background: #fff;
+            padding: $padding !important;
+            li {
+                cursor: pointer;
+                width: 25%;
+                float: left;
+                overflow-y: hidden;
+                img {
+                    width: 100%;
+                }
+                &.empty {
+                    padding: 10px;
+                    width: 100%;
+                }
+            }
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            td {
+                padding: 10px;
+                word-break: break-all;
+                &.key {
+                    @include overflow-auto(x);
+                    white-space: nowrap;
+                    max-width: 120px;
+                }
+                &.control {
+                    padding: 0;
+                    font-size: 0;
+                    width: 40px;
+                    .icon-trash {
+                        cursor: pointer;
+                        color: $red;
+                        font-size: $font-size;
+                        display: inline-block;
+                        width: 40px;
+                        height: 40px;
+                        text-align: center;
+                        line-height: 40px;
+                        transition: color $anim-duration;
+                        &:active {
+                            color: $red-dark;
+                        }
+                    }
+                }
+            }
+            background: #fff;
+        }
+    }
+} }

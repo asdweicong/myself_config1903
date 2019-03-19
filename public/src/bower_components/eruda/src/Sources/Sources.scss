@@ -1,0 +1,74 @@
+@import "../style/variable";
+@import "../style/mixin";
+
+.dev-tools { .tools {
+    .sources {
+        @include overflow-auto(y);
+        .code, .raw {
+            @include overflow-auto(x);
+            background: #fff;
+            padding: $padding;
+            min-height: 100%;
+        }
+        .code {
+            font-family: $font-family-code;
+            font-size: $font-size-s;
+        }
+        .image {
+            .breadcrumb {
+                @include breadcrumb();
+            }
+            .img-container {
+                text-align: center;
+                img {
+                    max-width: 100%;
+                    box-shadow: $box-shadow;
+                }
+            }
+            .img-info {
+                text-align: center;
+                margin-top: 20px;
+                color: $gray;
+            }
+        }
+        .json {
+            background: #fff;
+            padding: $padding;
+        }
+        .http {
+            .breadcrumb {
+                @include breadcrumb();
+            }
+            .section {
+                background: #fff;
+                h2 {
+                    background: $blue;
+                    padding: $padding;
+                    color: #fff;
+                    font-size: $font-size;
+                }
+                margin-bottom: 10px;
+                table {
+                    td {
+                        font-size: $font-size-s;
+                        padding: 5px 10px;
+                    }
+                    .key {
+                        white-space: nowrap;
+                    }
+                }
+            }
+            .response, .data {
+                @include overflow-auto(x);
+                background: #fff;
+                padding: $padding;
+                font-size: $font-size-s;
+                margin-bottom: 10px;
+            }
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
+} }

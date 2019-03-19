@@ -1,0 +1,114 @@
+@import "../style/variable";
+@import "../style/mixin";
+
+.dev-tools { .tools { .console {
+    .logs {
+        @include overflow-auto(y);
+        height: 100%;
+        font-size: $font-size;
+        .header {
+            @include overflow-auto(x);
+            white-space: nowrap;
+            margin: 10px 0;
+            padding: 0 $padding;
+            font-size: $font-size-s;
+            color: $gray;
+        }
+        .log-item {
+            @include clear-float();
+            background: #fff;
+            margin: 10px 0;
+            padding: $padding;
+            border-top: 1px solid $gray-light;
+            border-bottom: 1px solid $gray-light;
+            a {
+                color: $blue !important;
+            }
+            .count, .icon-container {
+                float: left;
+                margin-right: 5px;
+            }
+            .icon-container {
+                .icon {
+                    line-height: 20px;
+                    font-size: 12px;
+                    color: $gray-dark;
+                }
+                .icon-chevron-right {
+                    color: $blue;
+                }
+                .icon-info-circle {
+                    color: $blue;
+                }
+                .icon-times-circle {
+                    color: $red;
+                }
+                .icon-exclamation-triangle {
+                    color: $yellow-dark;
+                }
+            }
+            .count {
+                background: $blue;
+                padding: 2px 4px;
+                color: #fff;
+                border-radius: 10px;
+            }
+            .log-content-wrapper {
+                overflow: hidden;
+            }
+            .log-content
+            {
+                @include overflow-auto(x);
+                line-height: 20px;
+            }
+            &.input {
+                background: #fff;
+            }
+            &.html, &.table {
+                table {
+                    width: 100%;
+                    background: #fff;
+                    border-bottom: 1px solid $gray-light;
+                    border-collapse: collapse;
+                    th {
+                        background: $blue;
+                        color: #fff;
+                    }
+                    th, td {
+                        padding: 10px;
+                    }
+                }
+                .blue {
+                    color: $blue;
+                }
+            }
+            &.error {
+                background: $red-light;
+                color: $red;
+                border-top: 1px solid $red;
+                border-bottom: 1px solid $red;
+                .stack {
+                    color: $gray-dark;
+                    padding-left: 1.2em;
+                }
+                .count {
+                    background: $red;
+                }
+            }
+            &.debug {
+                color: $blue;
+            }
+            &.warn {
+                background: #fffbe6;
+                border-top: 1px solid $yellow;
+                border-bottom: 1px solid $yellow;
+            }
+            &.info {
+                color: $blue;
+            }
+            &.output {
+                color: $gray-dark;
+            }
+        }
+    }
+} } }

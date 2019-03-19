@@ -9,8 +9,11 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HappyPack = require("happypack");
 const happyThreadPool = HappyPack.ThreadPool({size: os.cpus().length}); //动态启动线程池
 
+const config = require('../config/config');
 
-var url = '';
+var appHostURL = config.appHostURL;
+var appHost = config.appHost;
+console.log('config.appHostURL +', url);
 var pages = require("./page.js").getConfig();
 module.exports = {
     entry: pages.entry,//引用生成好的配置
@@ -116,11 +119,13 @@ module.exports = {
         inline: false,
         proxy: {
             '/gis_server/*': {
-                target: url,
-                host: url,
+                target: appHostURL,
+                host: appHost,
                 secure: false,
                 onProxyRes: function onProxyRes(proxyRes, req, res) {
+                    alert(12)
                     if (proxyRes.headers.location) {
+                        alert(1)
                         var address = getIpAddress();
                         proxyRes.headers.location = "http://" + address + "8000";//重写重定向路径
                     }

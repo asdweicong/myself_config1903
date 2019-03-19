@@ -22,6 +22,9 @@ var urlParams = urlUtil(window.location.href);
 var object = {
     urlParams: urlParams,
     project: 'demoPage',
+    appHostURL: 'http://192.168.199.149:3003',
+    appHost: '192.168.199.149',
+
 };
 
 module.exports = object;

@@ -1,0 +1,34 @@
+@import "../style/variable";
+@import "../style/mixin";
+
+.dev-tools { .tools {
+    .snippets {
+        @include overflow-auto(y);
+        padding: $padding;
+        .section {
+            margin-bottom: 10px;
+            border-radius: $border-radius;
+            box-shadow: $box-shadow;
+            overflow: hidden;
+            .btn, .name {
+                padding: $padding;
+                color: #fff;
+                background: $gray;
+                text-align: center;
+            }
+            .btn {
+                background: $blue;
+                cursor: pointer;
+                transition: background $anim-duration;
+            }
+            .btn:active {
+                background: $blue-dark;
+            }
+            .description {
+                background: #fff;
+                padding: $padding;
+            }
+        }
+    }
+} }
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/rxjs/bundles/Rx.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+
+
+</body>
+<script>
+
+    var vm = {
+        add: function (x) {
+            var observable = Rx.Observable.create(function (observer) {
+                setTimeout(function () {
+                    console.log(x);
+                    observer.next(x + 1);
+                }, 300)
+            });
+            return observable;
+        },
+        minus: function (x) {
+            var observable = Rx.Observable.create(function (observer) {
+                observer.next(x - 1);
+            });
+            return observable;
+        }
+    };
+
+
+
+    vm.add(2)
+        .concatMap(function (x) {
+            return vm.add(x)
+        })
+        .concatMap(function (x) {
+            return vm.add(x)
+        })
+        .map(function (x) {
+            return x + 1
+        })
+        .subscribe(function (x) {
+            console.log("最后返回"+x)
+        });
+
+
+
+</script>
+</html>

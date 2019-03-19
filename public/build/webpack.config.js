@@ -13,6 +13,14 @@ const happyThreadPool = HappyPack.ThreadPool({size: os.cpus().length}); //动态
 var appHostURL = 'http://192.168.199.149';
 var appHost = '192.168.199.149';
 var pages = require("./page.js").getConfig();
+
+
+var getIpAddress = function () {
+    var address = require("os").networkInterfaces();
+    var host = address.en0[1].address;
+    return host;
+};
+
 module.exports = {
     entry: pages.entry,//引用生成好的配置
     output: {
@@ -116,35 +124,39 @@ module.exports = {
         hot: false,
         inline: false,
         proxy: {
-            '/gis_server/*': {
-                target: appHostURL,
-                host: appHost,
-                secure: false,
+            '/api/*': {
+                target: 'http://192.168.199.149:3003',
+                host: '192.168.199.149',
+                // target: 'http://hms-uat.test-cignacmb.com',
+                // host: 'hms-uat.test-cignacmb.com',
+                secure: true,
                 onProxyRes: function onProxyRes(proxyRes, req, res) {
-                    console.log(1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111)
-                    console.log(proxyRes.headers.location);
                     if (proxyRes.headers.location) {
                         var address = getIpAddress();
-                        proxyRes.headers.location = "http://" + address + "8000";//重写重定向路径
+                        proxyRes.headers.location = 'http://' + address + '8000'; //重写重定向路径
                     }
                 }
             }
-        },
-    }
-
-};
-console.log(2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222)
-
-var getIpAddress = function () {
-    var interfaces = require('os').networkInterfaces();
-    for (var devName = 0 in interfaces) {
-        var iface = devName[devName];
-        for (var i = 0; i < iface.length; i++) {
-            var alias = iface[i];
-            if (alias.family == 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal)
-                return alias.address;
-
         }
-
-    }
+    },
+    // devServer: {
+    //     // hot: true,
+    //     port: '8000',
+    //     inline: true,
+    //     // open: true,
+    //     overlay: true,
+    //     stats: 'errors-only',
+    //     proxy: {
+    //         '/api': {
+    //             target: 'http://192.168.199.149:3003', // 目标接口的域名
+    //             // secure: true,  // https 的时候 使用该参数
+    //             changeOrigin: true,  // 是否跨域
+    //             pathRewrite: {
+    //                 '^/api': 'http://' + getIpAddress() + ':8000'  // 重写路径
+    //             }
+    //         }
+    //     }
+    // }
 }
+;
+

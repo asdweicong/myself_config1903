@@ -7,15 +7,15 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(multer({dest: 'img/tmp'}).array('image'));
 
-app.get("/process_redirect", function (req, res) {
+app.get("/api/process_redirect", function (req, res) {
     req.redirect("http://baidu.com");
     res.end();
 });
-app.get("/process_writeHead", function (req, res) {
+app.get("/api/process_writeHead", function (req, res) {
     res.writeHead(301, {'Location': 'http://baidu.com'});
     res.end();
 });
-app.get("/process_get", function (req, res) {
+app.get("/api/process_get", function (req, res) {
     var response = {
         first_name: req.query.first_name,
         last_name: req.query.last_name,
@@ -23,7 +23,7 @@ app.get("/process_get", function (req, res) {
     console.log(response);
     res.end(JSON.stringify(response));
 });
-app.post("/process_post", function (req, res) {
+app.post("/api/process_post", function (req, res) {
     var response = {
         first_name: req.body.first_name,
         last_name: req.body.last_name,

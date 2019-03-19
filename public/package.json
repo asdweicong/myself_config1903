@@ -4,7 +4,8 @@
   "description": "demo",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config ./build/webpack.config.js --host 0.0.0.0 --port 8000"
+    "start": "webpack-dev-server --config ./build/webpack.config.js --host 0.0.0.0 --port 8000",
+    "build": "webpack --config ./build/build.js"
   },
   "repository": {
     "type": "git",

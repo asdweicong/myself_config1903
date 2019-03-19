@@ -126,9 +126,7 @@ module.exports = {
         proxy: {
             '/api/*': {
                 target: 'http://192.168.199.149:3003',
-                host: '192.168.199.149',
-                // target: 'http://hms-uat.test-cignacmb.com',
-                // host: 'hms-uat.test-cignacmb.com',
+                // host: '192.168.199.149',
                 secure: true,
                 onProxyRes: function onProxyRes(proxyRes, req, res) {
                     if (proxyRes.headers.location) {

@@ -116,6 +116,10 @@ module.exports = {
                     'window.jQuery': 'jquery',
                     'window.$': '$',
                 }),
+                new webpack.ProvidePlugin({
+                    avalon: 'avalon2',
+                    'window.avalon': 'avalon',
+                }),
 
             ]
         ),

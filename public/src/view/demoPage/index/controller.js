@@ -1,6 +1,8 @@
 var interfaces = require('../../../config/interfaces');
 
-var vm = {
+var vm = avalon.define({
+    $id: "vm",
+    detail:'154543534',
     process_post: function () {
         var process_post_data = {
             first_name: 'first_name',
@@ -15,7 +17,7 @@ var vm = {
         };
         interfaces.get('process_get', process_post_data);
     }
-};
+});
 vm.process_get();
 vm.process_post();
 

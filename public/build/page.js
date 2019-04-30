@@ -51,6 +51,7 @@ pagesConfig.pages['common'] = [
 //配置项目页（项目名引用 config.js 里的project属性）
 pagesConfig.pages[projectName] = [
     'index',
+    'vue',
 ];
 //生成配置
 console.log(pagesConfig.getConfig());

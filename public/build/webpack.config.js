@@ -118,7 +118,11 @@ module.exports = {
                 }),
                 new webpack.ProvidePlugin({
                     avalon: 'avalon2',
-                    'window.avalon': 'avalon',
+                    'window.avalon': 'avalon2',
+                }),
+                new webpack.ProvidePlugin({
+                    Vue: ['vue/dist/vue.esm.js', 'default'],
+                    'window.Vue': ['vue/dist/vue.esm.js', 'default'],
                 }),
 
             ]

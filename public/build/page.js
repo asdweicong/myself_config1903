@@ -48,6 +48,12 @@ var pagesConfig = {
 pagesConfig.pages['common'] = [
     'common_one',
 ];
+pagesConfig.pages['avalon'] = [
+    'index',
+];
+pagesConfig.pages['vue'] = [
+    'index',
+];
 //配置项目页（项目名引用 config.js 里的project属性）
 pagesConfig.pages[projectName] = [
     'index',

@@ -50,6 +50,7 @@ pagesConfig.pages['common'] = [
 ];
 pagesConfig.pages['avalon'] = [
     'index',
+    'pdfNew',
 ];
 pagesConfig.pages['vue'] = [
     'index',

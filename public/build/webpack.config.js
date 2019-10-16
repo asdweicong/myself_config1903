@@ -110,12 +110,12 @@ module.exports = {
                         'sass-loader',
                     ],
                 }),
-                new webpack.ProvidePlugin({
-                    $: 'jquery',
-                    jQuery: 'jquery',
-                    'window.jQuery': 'jquery',
-                    'window.$': '$',
-                }),
+                // new webpack.ProvidePlugin({
+                //     $: 'jquery',
+                //     jQuery: 'jquery',
+                //     'window.jQuery': 'jquery',
+                //     'window.$': '$',
+                // }),
                 new webpack.ProvidePlugin({
                     avalon: 'avalon2',
                     'window.avalon': 'avalon2',

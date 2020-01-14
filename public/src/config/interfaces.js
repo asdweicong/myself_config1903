@@ -2,6 +2,7 @@
  * Created by weicong on 19/3/18.
  */
 var config = require('./config');
+var $ = require('../lib/jquery')
 var object = {
     post: function (interfaceName, data) {
         $.ajax({

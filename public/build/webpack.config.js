@@ -133,13 +133,14 @@ module.exports = {
         inline: false,
         proxy: {
             '/api/*': {
-                target: 'http://192.168.199.149:3003',
+                target: 'http://192.168.56.1:3003',
                 // host: '192.168.199.149',
                 secure: true,
                 onProxyRes: function onProxyRes(proxyRes, req, res) {
+                    console.log(proxyRes.headers.location)
                     if (proxyRes.headers.location) {
                         var address = getIpAddress();
-                        proxyRes.headers.location = 'http://' + address + '8000'; //重写重定向路径
+                        proxyRes.headers.location = 'http://192.168.56.1:8000'; //重写重定向路径
                     }
                 }
             }

@@ -97,7 +97,7 @@
     "yargs": "^11.1.0"
   },
   "dependencies": {
-    "jquery": "^1.11.3",
+    "jquery": "^3.5.0",
     "avalon2": "^2.2.9",
     "vue": "^2.3.3"
   }
